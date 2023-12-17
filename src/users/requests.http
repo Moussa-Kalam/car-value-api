@@ -12,3 +12,6 @@ GET http://localhost:3000/auth/1
 
 ### Find all users with a given email address
 GET http://localhost:3000/auth?email=moussakalamamzat@gmail.com
+
+### Delete a user with a given id
+DELETE http://localhost:3000/auth/2
