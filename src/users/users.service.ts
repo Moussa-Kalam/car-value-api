@@ -11,7 +11,7 @@ export class UsersService {
     // Instance of User Entity
     const user = this.repo.create({ email, password });
 
-    // Persist the user in db
+    // Persist the user in db with the user entity instance
     return this.repo.save(user);
   }
 }
