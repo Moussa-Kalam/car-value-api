@@ -2,12 +2,10 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ReportsService } from './reports/reports.service';
-import { UsersService } from './users/users.service';
-import { UsersModule } from './users/users.module';
+import { Report } from './reports/report.entity';
 import { ReportsModule } from './reports/reports.module';
 import { User } from './users/user.entity';
-import { Report } from './reports/report.entity';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -21,6 +19,6 @@ import { Report } from './reports/report.entity';
     ReportsModule,
   ],
   controllers: [AppController],
-  providers: [AppService, ReportsService, UsersService],
+  providers: [AppService],
 })
 export class AppModule {}
