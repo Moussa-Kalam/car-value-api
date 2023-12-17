@@ -14,4 +14,12 @@ export class UsersService {
     // Persist the user in db with the user entity instance
     return this.repo.save(user);
   }
+
+  findOne(id: number) {
+    return this.repo.findOneBy({ id });
+  }
+
+  find(email: string) {
+    return this.repo.find({ where: { email } });
+  }
 }
