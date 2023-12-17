@@ -27,12 +27,18 @@ export class UsersService {
     // Get the user with the given id from the db
     const user = await this.findOne(id);
 
-    if (!user) throw new Error('User not found');
+    if (!user) throw new Error(`User with ${id} not found`);
 
     // Update the user object with input data
     Object.assign(user, attrs);
 
     // Save the updated user object to the db
     return this.repo.save(user);
+  }
+
+  async remove(id: number) {
+    const user = await this.findOne(id);
+    if (!user) throw new Error(`User with ${id} not found`);
+    return this.repo.remove(user);
   }
 }
