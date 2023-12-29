@@ -3,18 +3,21 @@ POST http://localhost:3000/auth/signup
 Content-type: application/json
 
 {
-    "email": "techie@gmail.com",
-    "password": "techiePW-2"
+    "email": "coder@gmail.com",
+    "password": "coder-2"
 }
 
-### Authenticate a user
+### Sign in an existing user
 POST http://localhost:3000/auth/signin
 Content-type: application/json
 
 {
-    "email": "techie@gmail.com",
-    "password": "techiePW-2"
+    "email": "coder@gmail.com",
+    "password": "coder-2"
 }
+
+### Get the currently signed in user
+GET http://localhost:3000/auth/whoamI
 
 ### Find a particular user with a given id
 GET http://localhost:3000/auth/1
@@ -32,3 +35,4 @@ Content-type: application/json
 {
     "password": "newpassword"
 }
+
