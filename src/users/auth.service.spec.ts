@@ -56,4 +56,29 @@ describe('AuthService', () => {
       NotFoundException,
     );
   });
+
+  it('throws if the user inputs an invalid password', async () => {
+    fakeUsersService.find = () =>
+      Promise.resolve([
+        { email: 'hello@gmail.com', password: 'passwd' } as User,
+      ]);
+
+    await expect(service.signin('hello@gmail.com', 'bropass')).rejects.toThrow(
+      BadRequestException,
+    );
+  });
+
+  it('returns a user if the correct password is provided', async () => {
+    fakeUsersService.find = () =>
+      Promise.resolve([
+        {
+          email: 'hello@gmail.com',
+          password:
+            '95a18d09218e46a0.f4c85fd048a3ad7831428ee6dfd4daebee0b95b61debdf13671af91799627d66',
+        } as User,
+      ]);
+
+    const user = await service.signin('hello@gmail.com', 'passwd');
+    expect(user.password).toBeDefined();
+  });
 });
