@@ -56,8 +56,10 @@ describe('AuthService', () => {
   });
 
   it('throws an error if a user signs up with an email already in use', async () => {
+    // Create a new user
     await service.signup('hello@gmail.com', 'passwd');
 
+    // Creating a new password with the same credentials
     await expect(service.signup('hello@gmail.com', 'passwd')).rejects.toThrow(
       BadRequestException,
     );
